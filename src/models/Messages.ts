@@ -1,10 +1,13 @@
 import { Schema, model } from "mongoose";
 
-const messagesSchema = new Schema({
-  message: String,
-  name: String,
-  timestamp: String,
-  received: Boolean,
-});
+const MessagesSchema = new Schema(
+  {
+    message: String,
+    name: String,
+    timestamp: String,
+    received: Boolean,
+  },
+  { versionKey: false }
+);
 
-export default model("Messages", messagesSchema);
+export default model("Messages", MessagesSchema);

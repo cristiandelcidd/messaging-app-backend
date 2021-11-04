@@ -6,7 +6,7 @@
   "author": "cristiandelcidd <cristian_delcid10@yahoo.com>",
   "license": "ISC",
   "scripts": {
-    "dev": "nodemon -e ts-node ./src/server.ts",
+    "dev": "nodemon --watch 'src/**' --ext 'ts' --exec 'ts-node src/server.ts'",
     "build": "npx tsc",
     "start": "node ./dist/server.js"
   },
@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^6.0.12"
+    "mongoose": "^6.0.12",
+    "pusher": "^5.0.0"
   }
 }
