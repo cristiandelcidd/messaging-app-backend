@@ -18,8 +18,8 @@ const connectionUrl =
 const pusher = new Pusher(pusherOptions);
 
 const db = mongoose.connection;
+
 db.once("open", () => {
-  console.log("DB Connected");
   const msgCollection = db.collection("messages");
   const changeStream = msgCollection.watch();
 
@@ -44,8 +44,6 @@ app.use(cors());
 
 mongoose.connect(connectionUrl, { autoIndex: true });
 
-app.get("/", (_: Request, res: Response) => res.send("Hola Mundo"));
-
 app.post("/messages/new", async (req: Request, res: Response) => {
   const message = req.body;
   try {
@@ -67,4 +65,4 @@ app.get("/messages/sync", async (_: Request, res: Response) => {
   }
 });
 
-app.listen(port, () => console.log(`Listening on localhost: ${port}`));
+app.listen(port, () => {});
